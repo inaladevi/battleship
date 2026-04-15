@@ -1,23 +1,26 @@
 # 🚢 Battleship
 
-A browser-based implementation of the classic Battleship game built using **JavaScript, HTML, and CSS**. 
-The application was built with a strict adherence to **Test-Driven Development (TDD)**, ensuring that all game logic, math, and rules were mathematically proven before a single line of UI code was written.
+A browser-based implementation of the classic Battleship game. This project prioritized Test-Driven Development (TDD) using Jest, ensuring core game logic (ship logic, hit detection, and win/loss rules) was mathematically verified before starting any user interface (UI) work.
 
-The project focuses on **TDD using Jest, Factory Functions, the Module Pattern, and strict Separation of Concerns**.
+Key technical focus points include:
+- Test-Driven Development (TDD) with Jest
+- Factory Functions and the Module Pattern for code organization
+- Strict Separation of Concerns (logic vs. DOM rendering)
 
 ## Live Demo
 
 [View on GitHub Pages](https://inaladevi.github.io/battleship/)
 
-## Features
+## Project Features
 
-- **Test-Driven Development (TDD)** using Jest to independently verify the logic of Ships, Gameboards, and Players before integrating them with the browser.
-- **Factory Functions & Module Pattern** to maintain secure, encapsulated code and prevent the global namespace from being polluted.
-- **Strict Separation of Concerns** by isolating all DOM manipulation into a dedicated module, keeping the core game logic entirely decoupled from the visual interface.
-- **Automated Opponent Logic** capable of calculating valid, randomized coordinate attacks without repeating previously fired shots.
-- **Dynamic Fleet Deployment** allowing players to instantly randomize their ship placements using boundary-aware logic that prevents overlapping or out-of-bounds positioning.
-- **Real-Time Game Loop** that sequentially manages player turns, registers hits/misses, updates remaining ship counts, and calculates win/loss conditions.
-- **Tactical UI/UX** utilizing CSS Grid for precise board layouts, custom web fonts (`Share Tech Mono`), and immediate visual feedback for hits (explosions) and misses (splashes).
+- **Test-Driven Development (TDD):** All core logic for ships, gameboards, and players was built and verified using Jest before any UI was added.
+- **Factory Function Architecture:** Objects are created using factory functions to keep data private and avoid issues with the `this` keyword.
+- **Decoupled DOM Logic:** A strict separation is maintained between the game’s mathematical logic and the code that updates the browser interface.
+- **Turn-Based Game Loop:** Manages the flow of the game, including player attacks, hit/miss tracking, and win condition checks.
+- **Computer Opponent:** Includes logic for a computer player to make random, legal moves while ensuring it never shoots the same coordinate twice.
+- **Randomized Ship Placement:** A system to deploy the fleet randomly while preventing ships from overlapping or going off the board edges.
+- **Grid-Based UI:** Built with CSS Grid and HTML5 data attributes to bridge the visual board with the underlying JavaScript coordinate system.
+
 
 ## Built With
 

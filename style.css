@@ -22,16 +22,17 @@ body {
     background: radial-gradient(circle at center, var(--deep-twilight), #01022b);
     color: var(--light-cyan);
     text-align: center;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     padding-top: 50px;
 }
 
 h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
+    font-size: 2.8rem;
+    margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 5px;
     color: var(--light-cyan);
@@ -54,8 +55,8 @@ h2 {
 
 .board {
     display: grid;
-    grid-template-columns: repeat(10, 35px);
-    grid-template-rows: repeat(10, 35px);
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
     gap: 2px;
 
     background-color: var(--french-blue);
@@ -66,8 +67,8 @@ h2 {
 }
 
 .cell {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     background-color: var(--turquoise-surf);
     cursor: crosshair;
     transition: background-color 0.2s ease, transform 0.1s ease;
@@ -122,12 +123,12 @@ h2 {
 }
 
 .game-info {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .rules {
     background-color: rgba(2, 62, 138, 0.5);
-    padding: 15px;
+    padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 20px;
     display: inline-block;
