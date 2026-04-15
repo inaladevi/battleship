@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Battleship</h1>
+    
+    <div class="game-info">
+        <div class="rules">
+            <h3>How to Play</h3>
+            <p>1. Click the enemy board to fire a torpedo.</p>
+            <p>2. Sink all 5 enemy ships before they sink yours.</p>
+            <p>3. Red = Hit, Light Blue = Miss.</p>
+        </div>
+        
+        <h2 id="status-message">Awaiting Orders, Captain...</h2>
+        
+        <div class="controls">
+            <button id="btn-randomize">Randomize My Fleet</button>
+            <button id="btn-reset">Restart Game</button>
+        </div>
+    </div>
+    
+    <div class="boards-container">
+        <div>
+            <h2>You <span id="human-count">(5 Ships)</span></h2>
+            <div id="player-board" class="board"></div>
+        </div>
+        <div>
+            <h2>Enemy <span id="computer-count">(5 Ships)</span></h2>
+            <div id="computer-board" class="board"></div>
+        </div>
+    </div>
+
+    <script type="module" src="src/index.js"></script>
+</body>
+</html>
