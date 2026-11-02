@@ -16,20 +16,48 @@ export const Gameboard = function() {
       successfulAttacks: [],
       ships: [],
 
+      // Places a ship horizontally starting at (row, col).
+      // Returns true if placed, false if it would go off the board or overlap another ship.
       placeShip: function (length, row, col) {
+        if (row < 0 || row > 9 || col < 0 || col + length > 10) {
+          return false;
+        }
+        for (let i = 0; i < length; i++) {
+          if (this.grid[row][col + i] !== null) {
+            return false;
+          }
+        }
+
         const newShip = Ship(length);
+        this.ships.push(newShip);
         for (let i = 0; i < length; i++) {
           this.grid[row][col + i] = newShip;
         }
+        return true;
       },
 
+      // Returns "hit", "miss", or null if the shot was ignored
+      // (off the board, or this cell was already attacked).
       receiveAttack: function (row, col) {
+        if (!Number.isInteger(row) || !Number.isInteger(col) ||
+            row < 0 || row > 9 || col < 0 || col > 9) {
+          return null;
+        }
+
+        const alreadyAttacked = [...this.successfulAttacks, ...this.missedAttacks].some(
+          (move) => move[0] === row && move[1] === col
+        );
+        if (alreadyAttacked) {
+          return null;
+        }
+
         if (this.grid[row][col] !== null) {
           this.grid[row][col].hit();
           this.successfulAttacks.push([row, col]);
-        } else {
-          this.missedAttacks.push([row, col]);
+          return "hit";
         }
+        this.missedAttacks.push([row, col]);
+        return "miss";
       },
 
       allShipsSunk: function () {
